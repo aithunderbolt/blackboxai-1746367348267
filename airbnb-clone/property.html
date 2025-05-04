@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airbnb Clone - Property Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans" style="font-family: 'Inter', sans-serif;">
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-red-600">Airbnb Clone</a>
+      <nav class="space-x-6">
+        <a href="listings.html" class="text-gray-700 hover:text-red-600 transition">Listings</a>
+        <a href="login.html" class="text-gray-700 hover:text-red-600 transition">Login</a>
+        <a href="signup.html" class="text-gray-700 hover:text-red-600 transition">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-6">Cozy Apartment in City Center</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg" alt="Cozy Apartment" class="rounded-lg shadow-md w-full object-cover max-h-96" />
+      </div>
+      <div>
+        <p class="text-gray-700 mb-4">2 guests · 1 bedroom · 1 bed · 1 bath</p>
+        <p class="text-gray-700 mb-6">
+          This cozy apartment is located in the heart of the city, close to all major attractions and public transport. It features modern amenities and a comfortable living space perfect for couples or solo travelers.
+        </p>
+        <p class="text-2xl font-bold text-red-600 mb-6">$80 / night</p>
+        <button id="bookBtn" class="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition">Book Now</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full">
+      <h2 class="text-xl font-bold mb-4">Book Your Stay</h2>
+      <form id="bookingForm" class="space-y-4">
+        <div>
+          <label for="checkin" class="block text-gray-700 mb-1">Check-in</label>
+          <input type="date" id="checkin" name="checkin" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-600" />
+        </div>
+        <div>
+          <label for="checkout" class="block text-gray-700 mb-1">Check-out</label>
+          <input type="date" id="checkout" name="checkout" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-600" />
+        </div>
+        <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition">Confirm Booking</button>
+        <button type="button" id="cancelBtn" class="ml-4 px-6 py-3 rounded-md font-semibold border border-gray-300 hover:bg-gray-100 transition">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t mt-16 py-6">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; 2024 Airbnb Clone. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const bookBtn = document.getElementById('bookBtn');
+    const bookingModal = document.getElementById('bookingModal');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const bookingForm = document.getElementById('bookingForm');
+
+    bookBtn.addEventListener('click', () => {
+      bookingModal.classList.remove('hidden');
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      bookingModal.classList.add('hidden');
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Booking confirmed! Thank you for choosing our Airbnb Clone.');
+      bookingModal.classList.add('hidden');
+      bookingForm.reset();
+    });
+  </script>
+</body>
+</html>
